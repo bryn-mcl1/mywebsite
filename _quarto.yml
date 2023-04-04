@@ -12,7 +12,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: MyHome
+        text: My Home
       - about.qmd
       - portfolio.qmd
       - walkthrough.qmd

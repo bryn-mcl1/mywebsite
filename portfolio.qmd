@@ -6,10 +6,8 @@ Hi there this is my portfolio page!
 
 ## Press Release Writing Sample
 
-This [story](https://apnews.com/) from the Associated Press dealt with voting rights issues in Texas in the wake of laws designed to make voting access more difficult.
+This [writing sample](https://f8749235435e4e168a2042499c500d86.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2FPress+Release+Writing+Sample+(McLaughlin).pdf) is a press release on behalf of Physicians for Human Rights (PHR), a New York-based advocacy organization that uses science and medicine to prevent mass atrocities and severe human rights violations.
 
-[![](https://storage.googleapis.com/afs-prod/media/76b879c7c4d74d46bfc10fa38564184b/1000.webp){fig-alt="This is showing a test image of nothing related to this actual story"}](https://apnews.com/)
+## Journalistic Writing Sample
 
-## Research Writing Sample
-
-Here is a story that [captured the moment of victory](https://apnews.com/) for candidate TKTK in the 2022 general election.
+Here is a [story](https://f8749235435e4e168a2042499c500d86.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2FJournalistic+Writing+Sample+(McLaughlin).pdf) on a panel held by The Atlantic Council's Global Energy Center on energy grid reliability. The event was held in the wake of mass power outages following a winter storm in Texas.

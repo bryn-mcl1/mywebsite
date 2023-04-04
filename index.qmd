@@ -6,10 +6,10 @@ about:
   links:
     - icon: twitter
       text: twitter
-      href: https://twitter.com/akesslerdc
+      href: https://twitter.com
     - icon: github
       text: Github
-      href: https://github.com/amkessler
+      href: https://github.com
 ---
 
 Hi, I'm Bryn and I will be graduating from GW in May. I have a bachelors degree in Political Communication and look forward to exploring life after college.
@@ -22,7 +22,7 @@ School of Media and Public Affairs
 
 ## Skills
 
-Media Monitoring 
+Media Monitoring
 
 Research Analysis
 

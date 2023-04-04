@@ -1,35 +1,197 @@
 ---
 title: "Analysis Walkthrough Example"
-author: "Aaron Kessler"
+author: "Bryn McLaughlin"
 format:
   html:
     self-contained: true
     code-fold: true
     code-tools: true
-
 ---
 
-We'll start by loading. our libraries.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 
-```{r}
-
+# Load the packages we'll need
 library(tidyverse)
 library(lubridate)
+library(readxl)
+library(writexl)
+library(janitor)
+
 ```
 
-We're going to look at some sample data from Texas on housing prices throughout the state.
+## House Democrats - First Trump Impeachment
 
-First we'll load data.
+### Load the data
+
+Run the code below to load the data.
+
+It will create a dataframe called `impeach`, which contains a row for every House Democrat and whether or not the member publicly called for impeachment in the case of the *first* Trump impeachment.
+
+Additionally, a series of election results and demographics are included related to each member's district.
 
 ```{r}
-# run this line below load the data for this assignment
-# we'll use a built-in dataset from the ggplot2 package (loaded as party of the tidyverse)
-housesales <- ggplot2::txhousing
+
+impeach <- readRDS("impeach.rds")
+
+
 ```
 
-Now, let's see what the data looks like
+### Questions
+
+Write your code using grouping in the chunks below to help answer the following questions.
+
+1)  How many members in the dataset favor impeachment vs. not (using the `for_impeachment` column)?
 
 ```{r}
-housesales %>% 
-  head()
+
+
+impeach %>% 
+  group_by(for_impeachment) %>% 
+  summarise(n())
+
+
+#grouped by for impeachment than summarized
+```
+
+2)  Similar to #1 above, using grouping to now break down the Democratic House members by TWO measures: those who are for or against impeachment (as you did above)....and then districts above/below national GDP.
+
+You'll want to ensure you do the grouping on both columns together, e.g. `group_by(column1, column2)`
+
+```{r}
+
+
+
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment,gdp_above_national) %>% 
+  summarise(n())
+
+#filtered for Dems, grouped by for impeachment and national gdp, then summarized
+```
+
+3)  Now do the same as #2, but this time instead of GDP, group by whether the district is above or below the national average for the percentage of college graduates. The column that captures this information is `pct_bachelors_compared_to_national`.
+
+```{r}
+
+
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment,pct_bachelors_compared_to_national) %>% 
+  summarise(n())
+
+#filtered for Dems, grouped by for impeachment and pct bachelors, then summarized.
+
+
+
+
+
+
+```
+
+4)  Let's look at the college graduation comparison in a slightly different way.
+
+Instead of counting how many districts are above/below the national average, this time summarize by the MEAN percentage of college grads (located in the column `pct_bachelors`) for districts that are Yes for impeachment vs. No.
+
+In other words, you want to end up with the calculated mean for what that percentage is for the Yes districts and the No districts.
+
+```{r}
+
+
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment) %>% 
+  summarise(mean(pct_bachelors))
+
+
+#filtered for Dems, grouped by for impeachment, then summarized using the mean of percent of pop w bachelors degree.
+
+
+
+```
+
+5)  Do the same as #4, but this time show the MEAN *percentage of the vote that Donald Trump received* for districts that are Yes for impeachment vs. No.\
+    The relevant column for that is `trump_percent`.
+
+```{r}
+
+
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment) %>% 
+  summarise(mean(trump_percent))
+
+
+
+
+#filtered for Dems, grouped by for impeachment, then summarized with mean of pop that voted for Trump.
+
+
+
+```
+
+6)  Filter out only the members who are a yes for impeachment. Then of those "Yes" member, how many won their 2018 election by less than 5 percentage points (`margin_flag_2018`) vs. more?
+
+```{r}
+
+  
+impeach %>% 
+  filter(party == "D", for_impeachment == "YES" ) %>% 
+  group_by(margin_flag_2018) %>% 
+  summarise(n())
+
+
+#Filtered for Dems who voted YES, grouped by 2018 margin, then summarized.
+
+
+
+```
+
+7)  Come up with another breakdown of your choosing for how you'd like to examine this dataset. Say what you'll look at, and then put the code below to find the answer.
+
+```{r}
+
+#I want to look at the state breakdown of reps who voted no on impeachment.
+
+impeach %>% 
+  filter(for_impeachment=="NO") %>% 
+  group_by(state) %>% 
+  summarise(n())
+
+
+#I used this function to explore what states were most prevelent among reps voting NO on impeachment. I filtered for NO, grouped by state, and summarized.
+
+
+```
+
+7)  You'll see a column in the table called date_announced. For members who came out as a Yes for impeachment, this is the date they announced their support for it.
+
+Use the mutate() function to create two new columns: one that extracts the year from date_announced, and a second that extracts the month.
+
+```{r}
+
+impeach <- impeach %>%
+  mutate(year_ann = year(date_announced),
+        month_ann = month(date_announced))
+
+
+#I made sure to use the <- function to save the change, then used mutate to create a new year and new month column from date_announced.
+
+```
+
+8)  Using the new columns you created in #7, use grouping to count up how many House Democrats during each month announced their support of impeachment.
+
+```{r}
+
+  
+impeach %>%
+  group_by(month_ann, for_impeachment) %>% 
+  summarise(n())
+
+#I grouped the month and for impeachment columns, then summarized.
+
+
+
+
+
 ```
