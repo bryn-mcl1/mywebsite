@@ -1,5 +1,5 @@
 ---
-title: "Aaron M. Kessler"
+title: "Bryn's Website"
 about:
   template: jolla
   image: testimage.jpg
@@ -12,20 +12,18 @@ about:
       href: https://github.com/amkessler
 ---
 
-Hi, I'm Aaron and I'm a journalist at the AP in Washington, DC. I like data, the ocean and F1 racing. I've got two little ones and enjoy watching them grow up.
+Hi, I'm Bryn and I will be graduating from GW in May. I have a bachelors degree in Political Communication and look forward to exploring life after college.
 
 ## Education
 
-University of Missouri-Columbia
+The George Washington University
 
-Columbia University asdfasdfsa
-
-Washington University in St. Louis
+School of Media and Public Affairs
 
 ## Skills
 
-Reporting and Writing
+Media Monitoring 
 
-Data Analysis
+Research Analysis
 
-FOIA laws
+Advocacy & Campaigns

@@ -4,11 +4,11 @@ project:
 
 website:
   page-footer: 
-    left: "Copyright 2023, Aaron Kessler" 
+    left: "Copyright 2023, Bryn McLaughlin" 
     right: 
       - icon: github
         href: https://github.com/
-  title: "Aaron's Website"
+  title: "Bryn's Website"
   navbar:
     left:
       - href: index.qmd
@@ -17,7 +17,6 @@ website:
       - portfolio.qmd
       - walkthrough.qmd
       
-
 
 format:
   html:
