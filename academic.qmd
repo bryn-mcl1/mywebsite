@@ -1,3 +1,14 @@
+---
+title: "Academic Research"
+author: "Bryn McLaughlin"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-location: left
+---
+
 **The following sample is taken from my research essay "*Honor and Love of Ladies: Chivalry in the Age of Shakespeare"*, which details the deterioration of knightly chivalric code in the context of Shakespeare. The essay was presented in the format of an art exhibition, and numbered figures, for example (fig. 2), are referenced throughout the essay regarding artwork that would be included in the exhibition.**
 
 **Chivalry, Women, and Broken Codes of Honor**
