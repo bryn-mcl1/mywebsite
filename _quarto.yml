@@ -17,6 +17,8 @@ website:
       - portfolio.qmd
       - Mapping.qmd
       - walkthrough.qmd
+      - newsstory.qmd
+      - academic.qmd
       
 
 format:

@@ -1,0 +1,34 @@
+---
+title: "Journalistic Writing"
+author: "Bryn McLaughlin"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-location: left
+---
+
+***The following sample is taken from a journalistic article I wrote on a panel hosted by The Atlantic Council's Global Energy.***
+
+Energy experts met online Thursday to discuss the urgency of increasing the United States' energy grid reliability, as Texans continue to struggle with the effects of mass power shortages following severe winter storms.
+
+The virtual event, hosted by The Atlantic Council's Global Energy Center, gathered representatives from various academic and corporate organizations to talk about the energy failures leading up to the recent cold weather crisis in the state of Texas.
+
+Last week's winter storm left dozens of Texans dead and millions without power as record setting low temperatures caused cascading failures throughout the state's energy grid. According to a report by the Texas Tribune, analysts are already predicting that the winter storm has the potential to be the costliest natural disaster in the state's history, even worse than the \$125 billion in damage caused by Hurricane Harvey in 2017.
+
+Experts on the panel identified two primary causes for the energy issues caused by the storm: the state power grid's independence from the national power grid, and lack of winterization measures by the Electric Reliability Council of Texas, or ERCOT.
+
+Due to the lack of power transmission capabilities with other states, the majority of Texas was unable to import power from surrounding states to supplement the rise in demand during the storm. The few parts of the state that are connected to the national grid, including El Paso, did not face the same issues as a majority of the population.
+
+The second primary cause of the energy crisis was the lack of winterization measures by ERCOT, the primary organization that operates the state's electric grid. Michael Webber, who is the chief science and technology officer at commercial energy provider ENGIE, outlined how the state's reliance on unwinterized natural gas providers backfired as low temperatures caused water within the gas supply to freeze, preventing the energy source from being pumped and accessed. At the peak of demand during the storm, 48% of the state's power capacity was rendered unavailable.
+
+Videos blaming the power shortage on renewable energy efforts in the state quickly went viral after Republican Gov. Greg Abbott appeared in a Fox News interview, blaming wind turbines and the Green New Deal for power deficiencies across the state. During the Atlantic Council meeting, Grid Strategies President Rob Gramlich refuted claims that renewable energy is to blame for the majority of energy loss.
+
+"It's clearly false. You know, a few gigawatts of wind loss, maybe about 10 percent of the total loss, is not the problem\...if 10% is a problem, what's going on with the other 90%?" Gramlich asked.
+
+Ben Hertz-Shargel, head of data science and technology at renewable energy company Rhythm, emphasized the importance of energy transmission between regions in preventing system failures. By connecting to neighboring energy grids, Texas would be able to rely on backup systems of power for future emergencies. Additional preventative measures discussed by panelists included stronger state and federal regulatory structures for energy winterization, diversification of fuel sources to fill potential gaps in resource grid capabilities and winterizing individual homes to decrease demand on energy grids during extreme weather events.
+
+Heather Rock, director of climate resilience at the Pacific Gas and Electric Company, warned of the danger of companies running their energy systems to failure. As extreme weather conditions become more frequent, system failures will have increasingly severe consequences on communities the grids support. In order to prevent these failures, Rock acknowledged that a prospective, long-term approach is necessary for the modernization of American power grids.
+
+"Our critical infrastructure nationwide is a system that was designed to operate in the conditions of the past. Now we need to think of extreme weather conditions, and chronic conditions, too, like sea level rise, not as unprecedented, but as expected," Rock said.
