@@ -19,6 +19,7 @@ website:
       - walkthrough.qmd
       - newsstory.qmd
       - academic.qmd
+      - virginia election project.qmd
       
 
 format:

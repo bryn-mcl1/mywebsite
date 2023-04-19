@@ -68,18 +68,6 @@ DT::datatable(vaelection,
 
 
 ```{r}
-#Now hmm, what's up with the filters on the text columns? Why aren't they working?
-#It's because of a quirk in DT tables where filters will only work on text that is converted to a factor
-#So let's do that
-events <- events %>% 
-  mutate(
-    state = as_factor(state),
-    event_type = as.factor(event_type)
-  )
-```
-
-
-```{r}
 #Now, for the coup de gr?ce
 #let's add some buttons at the top of the page to let people copy, download, etc
 #we do that using a DT "extenstion" called, you guessed it, Buttons

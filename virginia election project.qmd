@@ -1,1 +1,11 @@
+---
+title: "virginia election database table"
+author: "Bryn McLaughlin"
+format:
+  html:
+    self-contained: true
+---
 
+#Here is an explorable data table with the results of the 2020 Presidential Election, as well as the 2021 Virginia Gubernatorial Race
+
+![](vaelection_DT.html){fig-align="center"}
