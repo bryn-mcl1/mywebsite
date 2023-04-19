@@ -15,6 +15,7 @@ website:
         text: My Home
       - about.qmd
       - portfolio.qmd
+      - Mapping.qmd
       - walkthrough.qmd
       
 
