@@ -2,14 +2,7 @@
 title: "Bryn's Website"
 about:
   template: jolla
-  image: website title image.jpg
-  links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com
-    - icon: github
-      text: Github
-      href: https://github.com
+  image: website title image.jpeg
 ---
 
 Hi, I'm Bryn and I will be graduating from GW in May. I have a bachelors degree in Political Communication and look forward to exploring life after college.
