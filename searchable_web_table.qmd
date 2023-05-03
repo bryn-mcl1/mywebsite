@@ -67,6 +67,9 @@ DT::datatable(vaelection,
 ```
 
 
+```
+
+
 ```{r}
 #Now, for the coup de gr?ce
 #let's add some buttons at the top of the page to let people copy, download, etc
@@ -77,7 +80,7 @@ vaelection_DT <- DT::datatable(vaelection,
               rownames = FALSE, 
               filter = "top", 
               extensions = 'Buttons', 
-              options = list(   # <--- NEW STUFF STARTS HERE
+              options = list(   
                 dom = 'Bfrtip',
                 buttons = c('copy', 'csv', "excel")
               )) %>%

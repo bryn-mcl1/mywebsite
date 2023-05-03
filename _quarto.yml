@@ -20,6 +20,7 @@ website:
       - newsstory.qmd
       - academic.qmd
       - virginia election project.qmd
+      - breaking news story.qmd
       
 
 format:

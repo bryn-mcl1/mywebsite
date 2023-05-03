@@ -8,8 +8,6 @@ format:
 
 #Here is an explorable data table with the results of the 2020 Presidential Election, as well as the 2021 Virginia Gubernatorial Race
 
-![](vaelection_DT.html){fig-align="center"}
-
 #here is code to create a new column to the dataset calculating the difference between the percentage of the vote Youngkin received and what Trump received.
 
 ```{r}
@@ -21,6 +19,7 @@ format:
 ```{r}
 
 ```
+
 #Here is a chart that shows the Top 5 counties based on where Youngkin got the highest percentage of the vote.
 
 ```{r}
@@ -50,4 +49,3 @@ format:
 ```{r}
 
 ```
-

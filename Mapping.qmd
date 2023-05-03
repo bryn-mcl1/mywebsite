@@ -1,5 +1,5 @@
 ---
-title: "Interactive Maps"
+title: "Interactive Maps Walkthrough"
 author: "Bryn McLaughlin"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
