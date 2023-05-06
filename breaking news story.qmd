@@ -3,15 +3,19 @@ title: "breaking news story"
 editor: visual
 ---
 
-```{r}
+Below is an example of a breaking news story with inline R code embedded into the body of the story.
 
-# Load the packages we'll need
+First I downloaded the necessary packages.
+
+```{r}
 library(tidyverse)
 library(lubridate)
 library(readxl)
 library(writexl)
 library(janitor)
 ```
+
+Next, I uploaded the Democrat impeachment data set. Then I filtered for individuals for and against impeachment, summarized, and saved the data to separate variables: dem_yes_impeach and dem_no_impeach. After creating the two variables, I embedded them into the news story below using the coding format \`r\`.
 
 ```{r}
 impeach <- readRDS("impeach.rds")
@@ -23,13 +27,12 @@ dem_no_impeach <- impeach %>%
 dem_yes_impeach <- impeach %>% 
   filter(for_impeachment == "YES") %>% 
   summarise(n())
-```
 
-```{r}
 dem_yes_impeach
 dem_no_impeach
 
-
 ```
 
-According to recent data from the impeach dataset, `r dem_no_impeach` Democrats are currently opposed to impeachment, while `r dem_yes_impeach` Democrats are in favor of impeachment.
+**Breaking News Story**
+
+In the historic vote to impeach President Donald Trump, House Democrats are split. According to recent data, `r dem_no_impeach` Democrats are currently opposed to impeachment, while `r dem_yes_impeach` Democrats are in favor of impeachment. Democrats are looking to adopt two articles of impeachment against President Trump: abuse of power and obstruction of Congress. Calls for impeachment come in the wake of multiple whistleblower complaints, including those by Lt. Col. Alexander Vindman, a member of the National Security Council. Vindman claims that President Trump demonstrated an abuse of power during a phone call with Ukrainian president Volodymyr Zelenskyy,during which he allegedly threatened to withhold military unless Zelenskyy announced an investigation into former vice president and political opponent Joe Biden.

@@ -1,5 +1,5 @@
 ---
-title: "Analysis Walkthrough Example"
+title: "Walkthrough Example"
 author: "Bryn McLaughlin"
 format:
   html:
@@ -20,31 +20,30 @@ library(janitor)
 
 ```
 
-## House Democrats - First Trump Impeachment
+Below is an example of a grouping, filtering, and summarising walkthrough. I will be using data on how House Democrats voted during the first Trump impeachment proceedings in order to explain the key concepts.
 
 ### Load the data
 
-Run the code below to load the data.
+First, we will run the code below to load the data; all of these files should be included in your Posit Cloud directory from the initial Github upload.
 
-It will create a dataframe called `impeach`, which contains a row for every House Democrat and whether or not the member publicly called for impeachment in the case of the *first* Trump impeachment.
+Additionally data including election results and demographics are included related to each member's district.
 
-Additionally, a series of election results and demographics are included related to each member's district.
+the code below create a data frame called `impeach`, which contains a row for every House Democrat and whether or not the member publicly called for impeachment in the case of the *first* Trump impeachment.
+
+After creating the data frame, we will use the view() function to look at the dataset and understand the different variables.
 
 ```{r}
 
 impeach <- readRDS("impeach.rds")
 
-
+view(impeach)
 ```
 
-### Questions
+Next we will use the **group_by()** and **summarise()** functions to see how many members in the data set favor impeachment vs. not. After looking through the data set and identiying the needed variables, we will use the `for_impeachment` to pull this information.
 
-Write your code using grouping in the chunks below to help answer the following questions.
-
-1)  How many members in the dataset favor impeachment vs. not (using the `for_impeachment` column)?
+Summarise is used at the end to pull the summed number for each variable. When using multiple lines of code, make sure to use the **pipe shortcut** (eg %\>%) to create a complete command.
 
 ```{r}
-
 
 impeach %>% 
   group_by(for_impeachment) %>% 
@@ -54,9 +53,9 @@ impeach %>%
 #grouped by for impeachment than summarized
 ```
 
-2)  Similar to #1 above, using grouping to now break down the Democratic House members by TWO measures: those who are for or against impeachment (as you did above)....and then districts above/below national GDP.
+Next we will be adding multiple functions to the code we used above. Here we use grouping to break down the Democratic House members by TWO measures: those who are for or against impeachment AND then districts above/below national GDP.
 
-You'll want to ensure you do the grouping on both columns together, e.g. `group_by(column1, column2)`
+You'll want to ensure you do the grouping on both columns together using the same function, e.g. `group_by(column1, column2).`
 
 ```{r}
 
@@ -70,13 +69,12 @@ impeach %>%
 #filtered for Dems, grouped by for impeachment and national gdp, then summarized
 ```
 
-3)  Now do the same as #2, but this time instead of GDP, group by whether the district is above or below the national average for the percentage of college graduates. The column that captures this information is `pct_bachelors_compared_to_national`.
+Now we will do the same as above, but this time instead of GDP, group by whether the district is above or below the national average for the percentage of college graduates. The column that captures this information is `pct_bachelors_compared_to_national`.
 
 ```{r}
 
 
 impeach %>% 
-  filter(party == "D") %>% 
   group_by(for_impeachment,pct_bachelors_compared_to_national) %>% 
   summarise(n())
 
@@ -89,11 +87,11 @@ impeach %>%
 
 ```
 
-4)  Let's look at the college graduation comparison in a slightly different way.
+Now lets try using the **mean()** command.
 
 Instead of counting how many districts are above/below the national average, this time summarize by the MEAN percentage of college grads (located in the column `pct_bachelors`) for districts that are Yes for impeachment vs. No.
 
-In other words, you want to end up with the calculated mean for what that percentage is for the Yes districts and the No districts.
+We want to end up with the calculated mean for what that percentage is for the Yes districts and the No districts. Therefore we will nest the mean command within the summarise command, and use an extra pair of parentheses to distinguish.
 
 ```{r}
 
@@ -106,48 +104,9 @@ impeach %>%
 
 #filtered for Dems, grouped by for impeachment, then summarized using the mean of percent of pop w bachelors degree.
 
-
-
 ```
 
-5)  Do the same as #4, but this time show the MEAN *percentage of the vote that Donald Trump received* for districts that are Yes for impeachment vs. No.\
-    The relevant column for that is `trump_percent`.
-
-```{r}
-
-
-impeach %>% 
-  filter(party == "D") %>% 
-  group_by(for_impeachment) %>% 
-  summarise(mean(trump_percent))
-
-
-
-
-#filtered for Dems, grouped by for impeachment, then summarized with mean of pop that voted for Trump.
-
-
-
-```
-
-6)  Filter out only the members who are a yes for impeachment. Then of those "Yes" member, how many won their 2018 election by less than 5 percentage points (`margin_flag_2018`) vs. more?
-
-```{r}
-
-  
-impeach %>% 
-  filter(party == "D", for_impeachment == "YES" ) %>% 
-  group_by(margin_flag_2018) %>% 
-  summarise(n())
-
-
-#Filtered for Dems who voted YES, grouped by 2018 margin, then summarized.
-
-
-
-```
-
-7)  Come up with another breakdown of your choosing for how you'd like to examine this dataset. Say what you'll look at, and then put the code below to find the answer.
+Next we will try grouping by state and filtering for "NO" in for_impeachment. This will show us which states cast the highest number of NO votes.
 
 ```{r}
 
@@ -161,37 +120,10 @@ impeach %>%
 
 #I used this function to explore what states were most prevelent among reps voting NO on impeachment. I filtered for NO, grouped by state, and summarized.
 
-
 ```
 
-7)  You'll see a column in the table called date_announced. For members who came out as a Yes for impeachment, this is the date they announced their support for it.
+Here we can see that 4 Democrat representatives from Texas voted no on impeachment, the highest number among all the states.
 
-Use the mutate() function to create two new columns: one that extracts the year from date_announced, and a second that extracts the month.
+Continue to experiment with these commands to find new ways to explore and analyze the data.
 
-```{r}
-
-impeach <- impeach %>%
-  mutate(year_ann = year(date_announced),
-        month_ann = month(date_announced))
-
-
-#I made sure to use the <- function to save the change, then used mutate to create a new year and new month column from date_announced.
-
-```
-
-8)  Using the new columns you created in #7, use grouping to count up how many House Democrats during each month announced their support of impeachment.
-
-```{r}
-
-  
-impeach %>%
-  group_by(month_ann, for_impeachment) %>% 
-  summarise(n())
-
-#I grouped the month and for impeachment columns, then summarized.
-
-
-
-
-
-```
+This is the end of the tutorial. Thanks!

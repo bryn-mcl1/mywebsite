@@ -128,7 +128,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <body class="nav-fixed">
 
-
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -161,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./walkthrough.html">
- <span class="menu-text">Analysis Walkthrough Example</span></a>
+ <span class="menu-text">Walkthrough Example</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./newsstory.html">
@@ -171,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./academic.html">
  <span class="menu-text">Academic Research</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./virginia election project.html">
- <span class="menu-text">virginia election database table</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="./vaelection_DT.html">
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./breaking news story.html" aria-current="page">
@@ -212,9 +211,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p>Below is an example of a breaking news story with inline R code embedded into the body of the story.</p>
+<p>First I downloaded the necessary packages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the packages we'll need</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ readr     2.1.4
@@ -240,6 +240,7 @@ The following objects are masked from 'package:stats':
     chisq.test, fisher.test</code></pre>
 </div>
 </div>
+<p>Next, I uploaded the Democrat impeachment data set. Then I filtered for individuals for and against impeachment, summarized, and saved the data to separate variables: dem_yes_impeach and dem_no_impeach. After creating the two variables, I embedded them into the news story below using the coding format `r`.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>impeach <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"impeach.rds"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -249,17 +250,16 @@ The following objects are masked from 'package:stats':
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dem_yes_impeach <span class="ot">&lt;-</span> impeach <span class="sc">%&gt;%</span> </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">"YES"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dem_yes_impeach</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>dem_yes_impeach</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `n()`
   &lt;int&gt;
 1   209</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dem_no_impeach</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dem_no_impeach</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `n()`
@@ -267,7 +267,8 @@ The following objects are masked from 'package:stats':
 1    26</code></pre>
 </div>
 </div>
-<p>According to recent data from the impeach dataset, 26 Democrats are currently opposed to impeachment, while 209 Democrats are in favor of impeachment.</p>
+<p><strong>Breaking News Story</strong></p>
+<p>In the historic vote to impeach President Donald Trump, House Democrats are split. According to recent data, 26 Democrats are currently opposed to impeachment, while 209 Democrats are in favor of impeachment. Democrats are looking to adopt two articles of impeachment against President Trump: abuse of power and obstruction of Congress. Calls for impeachment come in the wake of multiple whistleblower complaints, including those by Lt. Col. Alexander Vindman, a member of the National Security Council. Vindman claims that President Trump demonstrated an abuse of power during a phone call with Ukrainian president Volodymyr Zelenskyy,during which he allegedly threatened to withhold military unless Zelenskyy announced an investigation into former vice president and political opponent Joe Biden.</p>
 
 
 
