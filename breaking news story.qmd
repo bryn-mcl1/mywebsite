@@ -2,3 +2,34 @@
 title: "breaking news story"
 editor: visual
 ---
+
+```{r}
+
+# Load the packages we'll need
+library(tidyverse)
+library(lubridate)
+library(readxl)
+library(writexl)
+library(janitor)
+```
+
+```{r}
+impeach <- readRDS("impeach.rds")
+
+dem_no_impeach <- impeach %>% 
+  filter(for_impeachment == "NO") %>% 
+  summarise(n())
+
+dem_yes_impeach <- impeach %>% 
+  filter(for_impeachment == "YES") %>% 
+  summarise(n())
+```
+
+```{r}
+dem_yes_impeach
+dem_no_impeach
+
+
+```
+
+According to recent data from the impeach dataset, `r dem_no_impeach` Democrats are currently opposed to impeachment, while `r dem_yes_impeach` Democrats are in favor of impeachment.
